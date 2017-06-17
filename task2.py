@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
-#! -*- coding: utf-8 -*-
 
 from collections import OrderedDict
 
 
 def damage(spell):
 
-    start_index = spell.find('fe') + 2 # without +2 it would contain the first 'fe'
+    start_index = spell.find('fe') + 2 # +2 to remove first 'fe' from spell
     end_index = spell.rfind('ai')
 
-    if start_index != -1 and end_index != -1 and end_index >= start_index: # order of 'fe' 'ai' matters, both must be in a spell
+    # order of 'fe' 'ai' matters, both must be in a spell
+    if start_index != -1 and end_index != -1 and end_index >= start_index: 
         valid_spell = spell[start_index:end_index]
 
         if 'fe' in valid_spell:
             return 0
         else:
-            word_book = OrderedDict([ # order in the book matters for biggest "spellpower" possible for The One
+            # order in the book matters for biggest "spellpower" possible
+            word_book = OrderedDict([ 
             ('dai', 5),
             ('ne', 2),
             ('ain', 3),
