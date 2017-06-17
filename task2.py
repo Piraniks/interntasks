@@ -5,7 +5,7 @@ from collections import OrderedDict
 
 def damage(spell):
 
-    start_index = spell.find('fe') + 2 # +2 to remove first 'fe' from spell
+    start_index = spell.find('fe') + 2  # +2 to remove first 'fe' from spell
     end_index = spell.rfind('ai')
 
     # order of 'fe' 'ai' matters, both must be in a spell
@@ -17,23 +17,23 @@ def damage(spell):
         else:
             # order in the book matters for biggest "spellpower" possible
             word_book = OrderedDict([ 
-            ('dai', 5),
-            ('ne', 2),
-            ('ain', 3),
-            ('ai', 2),
-            ('jee', 3),
-            ('je', 2),
-            ])
-            damage = 3
+                ('dai', 5),
+                ('ne', 2),
+                ('ain', 3),
+                ('ai', 2),
+                ('jee', 3),
+                ('je', 2),
+                ])
+            dmg = 3
 
             # process the actual spell
             for word in word_book:
-                damage += valid_spell.count(word) * word_book[word]
+                dmg += valid_spell.count(word) * word_book[word]
                 valid_spell = valid_spell.replace(word, ' ')
 
             valid_spell = valid_spell.replace(' ', '')
-            damage -= len(valid_spell)
+            dmg -= len(valid_spell)
 
-            return max(damage, 0)
+            return max(dmg, 0)
     else:
         return 0
