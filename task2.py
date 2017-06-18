@@ -15,7 +15,7 @@ def damage(spell):
         if 'fe' in valid_spell:
             return 0
         else:
-            # order in the book matters for biggest "spellpower" possible
+            # order in the book matters for biggest "spell power" possible
             word_book = OrderedDict([ 
                 ('dai', 5),
                 ('ne', 2),
@@ -24,7 +24,7 @@ def damage(spell):
                 ('jee', 3),
                 ('je', 2),
                 ])
-            dmg = 3
+            dmg = 3  # fe + ai = 3
 
             # process the actual spell
             for word in word_book:
